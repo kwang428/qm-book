@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="225" height="225" viewBox="-112.5 -112.5 225 225">
+<defs>
+<marker markerWidth="4.0" markerHeight="4.04" viewBox="-0.1 -0.51 1.0 1.01" orient="auto" id="d0">
+<path d="M-0.1,0.5 L-0.1,-0.5 L0.9,0 Z" fill="black" stroke-width="3" />
+</marker>
+<marker markerWidth="7.2" markerHeight="4.04" viewBox="-0.9 -0.51 1.8 1.01" orient="auto" id="d1">
+<path d="M0.1,0.5 L0.1,-0.5 L-0.9,0 Z" fill="black" stroke-width="3" />
+</marker>
+</defs>
+<circle cx="0" cy="0" r="10" fill="black" />
+<circle cx="0" cy="0" r="70" fill="none" stroke-width="3" stroke="black" />
+<circle cx="70" cy="0" r="5" fill="white" stroke="black" stroke-width="3" />
+<path d="M17,0 L57,0" marker-end="url(#d0)" marker-start="url(#d1)" stroke="black" stroke-width="2" />
+<path d="M70,-10 L70,-35" marker-end="url(#d0)" stroke="black" stroke-width="2" />
+<text x="-20" y="-10" font-size="24">e</text>
+<text x="80" y="0" font-size="24">-e</text>
+<text x="35" y="-20" font-size="24" text-anchor="middle" dominant-baseline="central">r</text>
+<text x="80" y="-50" font-size="24" text-anchor="middle" dominant-baseline="central">v</text>
+</svg>
