@@ -1,0 +1,211 @@
+% !TeX root = ../main.tex
+
+\setchapterpreamble[u]{\margintoc}
+\chapter{Time-Independent Quantum Dynamics}
+\labch{se}
+
+We begin our journey into quantum mechanics by providing a wave-description of particles, called the \textbf{wavefunction}, and it's interpretation. Central to any discussion of physics is the dynamics of such physical states, which is given by the \textbf{Schr\"{o}dinger equation}. Dynamics is hardly a simple matter and a subject of intense study in modern research. However, we delve specifically into a special class of problems, namely \textit{time-independent} ones, where dynamics can be described precisely and in some cases solved for exactly and analytically. We then proceed through a few instructive examples of these problems to begin developing intuition for quantum mechanics. 
+
+\section{The Wavefunction}
+
+In classical mechanics, particles are described by their position, $\mathbf{r} $ and velocity $\mathbf{v}$. These properties then evolve under the influence of \textbf{forces} by Newton's Second Law:
+
+\begin{equation}
+	\mathbf{F} = m\mathbf{a} = m\frac{d^2 \mathbf{r}}{dt^2}
+\end{equation}
+
+Solving classical mechanics problems then involves solving this second order differential equation. 
+
+In quantum mechanics, particles are no longer in definite positions, nor are they moving in particular directions. To describe a particle, we use a \textbf{wavefunction}, which is a complex valued function of space, $\psi(\mathbf{r})$\sidenote[][-40mm]{This is actually quite a restrictive description. As we'll see in the next chapter, the quantum formalism can be used to describe degrees of freedom that are intrinsic to particles, like \textbf{spin}, which have nothing to do with space. This description is coming, but for now, let's just work in position space, and for these situations, it is perfectly fine to think of the wavefunction as a complex valued function of space.}. Now, what does this wavefunction actually \textit{mean} or predict? The square of the wavefunction\sidenote{We have to take the square, because it's complex valued and a probability has to be positive and real valued} value at a particular location is the probability of finding the wavefunction at that location:
+
+\begin{equation}
+	P(\mathbf{r}) = \psi(\mathbf{r})^*\psi(\mathbf{r}) = |\psi(\mathbf{r})|^2.
+\end{equation}
+
+This interpretation is known as the \textbf{Born interpretation of the wavefunction} or the \textbf{Born rule}. To find the probability of finding the particle in a particular volume, $ \mathcal{V} $, we integrate over the volume:
+
+\begin{equation}
+	P(\text{particle in } \mathcal{V}) = \int_{\mathcal{V}} d^3\mathbf{r} |\psi(\mathbf{r})|^2 
+\end{equation}
+
+Since the particle must be found somewhere, it must be \textbf{normalized}, meaning the integral over all space must be 1:
+
+\begin{equation}
+	\int_{\mathbb{R}^3} d^3\mathbf{r} |\psi(\mathbf{r})|^2 = 1.
+\end{equation}
+
+\begin{example}
+	Consider a particle in 1D that has a equal probability of being found between $x = -3$ and $x = 3$. Write down its wavefunction.
+	
+	\textit{Solution: } Since the particle has an uniform probability of being found at any position, it must have a constant value, which we denote as $C$. The normalization condition demands that
+	
+	\begin{equation}
+		\int_{-3}^3 dx C^2 = 1 \implies C = \frac{1}{\sqrt{6}} 
+	\end{equation}
+	
+	Thus, the wavefunction is given by:
+	
+	\begin{equation}
+		\psi(x) = \frac{1}{\sqrt{6}} \text{ for } -3 \leq x \leq 3
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Consider a particle in 1D with a Gaussian probability distribution, centered at $x = 0$ with a full width at half maximum\sidenote{This description may seem unnecessarily terse, but it is important training to be able to work out these factors! Imagine you are in a lab, and you are able to measure 1/2 a peak quite well, and you need to relate this to an analytical form to use in predicting other quantities. This is practical training for that eventuality!} of $ w $. Write down its wavefunction.
+	
+	\textit{Solution: } A Gaussian probability distribution is one where the probability of finding the particle in space is given by:
+	
+	\begin{equation} \label{gaussian:eq}
+		\psi(x) = Ae^{-x^2/d^2}
+	\end{equation}
+	
+	We now need to relate $d$ to the full width half maximum $w$, and also determine the normalization constant $ w $. We need to find the $x_0$ such that the \textit{probability} (which is the square of the wavefunction!) reaches half its maximum value at $x = 0$. Namely, we solve the equation:
+	
+	\begin{equation}
+		|\psi(x = x_0)|^2 = A^2 e^{-2x_0^2/d^2} = A^2/2 \implies w = 2x_0 = d\sqrt{2\ln(2)}
+	\end{equation}
+	
+	Expressing equation \ref{gaussian:eq} with $w$ gives us our wavefunction in terms of $w$:
+	
+	\begin{equation}
+		\psi(x) = Ae^{-2\ln(2) x^2/w^2}
+	\end{equation}
+	
+	Now, we need to determine our normalization constant $A$. To do this, we need to perform the famous Gaussian integral. You may already know how to do this and can skip to the result, but since it is so important and beautiful, I will reproduce it here. 
+	
+	To make it easier to keep track of constant factors, let's perform our calculation on the Gaussian with a simple $a^2$ in the denominator\sidenote{Note that we have been using $a^2$ to ensure that the units of $a$ are the same as the units of $x$.}. Let the result of our integral be $C$:
+	
+	\begin{equation}
+		C = \int_{-\infty}^{\infty}dx e^{-x^2/a^2}
+	\end{equation}
+	As a trick, note that an integral of this quantity in a second dimension will have the same value C:
+	
+	\begin{equation}
+		C = \int_{-\infty}^{\infty}dy e^{-y^2/a^2}
+	\end{equation}
+	
+	We can multiply these two one dimensional integrals together and Fubini's theorem tells us that evaluating these two one dimensional integrals is the same as evaluating a double integral:
+	
+	\begin{equation}
+		C^2 = \left(\int_{-\infty}^{\infty}dx e^{-x^2/a^2} \right) \left(\int_{-\infty}^{\infty} dy e^{-y^2/a^2}\right) = \int_{\mathbb{R}^2} dx dy e^{-(x^2 + y^2)/a^2}
+	\end{equation}
+	Now, we reap the fruits of going into the second dimension! We perform a change of variables into polar coordinates\sidenote{Of course there is a definition of $\theta$, but our integrand has no dependence on it. The definition is via $ x = r\cos\theta, y = r\sin\theta$}: $r^2 = x^2 + y^2, dxdy = rdrd\theta$. 
+	
+	\begin{equation}
+		C^2 = \int_{0}^{2\pi}d\theta\int_{0}^{\infty}dr  re^{-r^2/a^2} = 2\pi \int_{0}^{\infty}dr  re^{-r^2/a^2} 
+	\end{equation}
+	
+	Now, we can perform the $r$ integration, through a simple change of variables. Let $u = (r/a)^2, du = (2 r/a^2) dr$:
+	
+	\begin{equation}
+		C^2 = \pi a^2\int_{0}^{\infty} du e^{-u} = \pi a^2 \implies C = |a|\sqrt{\pi}
+	\end{equation}
+	
+	When $a = 1$, we get the celebrated result that the integral of $e^{-x^2}$ is $\sqrt{\pi}$! 
+	
+	Finally, we return to our problem. Normalization requires
+	
+	\begin{equation}
+		1 = A^2 \int_{-\infty}^{\infty}dx e^{-4\ln(2) x^2/w^2}
+	\end{equation}
+	
+	For us, $a = w/(2\sqrt{\ln(2)})$, thus we obtain:
+	
+	\begin{equation}
+		1 = A^2 \frac{w}{2\sqrt{ln(2)}}\sqrt{\pi} \implies A = \left(\frac{4\ln(2)}{\pi w^2}\right)^{1/4}
+	\end{equation}
+	
+	Hence, our wavefunction is:
+	
+	\begin{equation}
+		\psi(x) =  \left(\frac{4\ln(2)}{\pi w^2}\right)^{1/4}e^{-2\ln(2) x^2/w^2}
+	\end{equation}
+	
+\end{example}
+
+\subsubsection{Arbitrary Global Phase}
+
+The astute reader may have noticed that the wavefunctions we wrote in the above example are not unique! Since the wavefunction is complex-valued, any of the above probability distributions are only unique up to a \textbf{arbitrary global phase}. In other words, any of the above wavefunctions could be transformed in the following way:
+
+\begin{equation}
+	\psi(x) \to e^{i\varphi}\psi(x)
+\end{equation}
+
+This transformation keeps the probability density unchanged\sidenote{Recall for complex numbers $|\psi(x)|^2 = \psi^*(x)\psi(x) = \psi(x)\psi^*(x) $ }, and therefore (as we will see) all physical observables will remain unchanged. Thus, the \textit{physical consequences} of this global phase $\varphi$ are \textit{unobservable}, which means that any written wavefunction has an arbitrary choice of this phase. In the above examples, we have implicitly assumed that the wavefunctions are real, which means we have chosen $\varphi = 0 $.\sidenote{We could have also chosen $\varphi = \pi $ to obtain a real result}
+
+
+\subsubsection{Orthogonality of Wavefunctions}
+
+We have introduced the concept of normalization of wavefunctions, which provides the physical constraint that probabilities must sum to one. It is useful to also introduce a concept of an ``overlap" between wavefunctions and with it, orthogonality\sidenote{We will formalize this later as an inner product}. The overlap of two wavefunctions, $\psi_1(\mathbf{r}), \psi_2(\mathbf{r})$ can be defined as the integral:
+
+\begin{equation}
+	\int_{\mathbb{R}^3} d^3\mathbf{r} \psi_1^*(\mathbf{r})\psi_2(\mathbf{r}) 
+\end{equation}
+
+Two wavefunctions are orthogonal, if the overlap is zero.
+
+\begin{equation}
+	\int_{\mathbb{R}^3} d^3\mathbf{r} \psi_1^*(\mathbf{r})\psi_2(\mathbf{r}) = 0 
+\end{equation}
+
+With concepts of orthogonality and normalization defined, we can already begin to see that the mathematical structure that wavefunctions live in are very much like a vector space. Continuing down this thread, we note that there are bases of wavefunctions, $\{\phi_i(x)\}$, where:
+
+\begin{equation}
+	\int_{\mathbb{R}^3}d^3\mathbf{r}\phi_i^*(\mathbf{r})\phi_j(\mathbf{r}) = \delta_{ij}
+\end{equation}
+
+We will see that it will be very useful to decompose wavefunctions into certain bases. 
+
+\section{Operators, Observables and Expectation Values}
+
+Now that we have introduced how quantum states are represented, we would like to extract physical observables from these states as well as evolve them in time. Our description already provides the probability of finding particles at particular positions. Using probability theory, the expectation value of any function of position can be simply calculated as:
+
+\begin{equation}
+	E(f(\mathbf{r}))_{\psi} = \int_{\mathbf{R}^3} d^3\mathbf{r} f(\mathbf{r}) |\psi(\mathbf{r})|^2
+\end{equation}
+
+where $E$ denotes the expectation value, and the subscript $\psi$ indicates the underlying probability distribution (or wavefunction) that is under consideration. 
+
+\begin{example}
+	Mean position of a simple distribution
+\end{example}
+
+A particularly useful expectation value is the \textbf{uncertainty in position} or standard deviation of the position, which gives a sense of how spread out the wavefunction is. In 1D, the variance (square of the standard deviation), $(\Delta x)^2_{\psi} $ can be calculated as:
+
+\begin{equation}
+	(\Delta x)^2_{\psi} = E(x^2)_{\psi} - (E(x)_{\psi})^2 = \int_{-\infty}^{\infty} dx x^2 |\psi(x)|^2 - \left(\int_{-\infty}^{\infty} dx x |\psi(x)|^2 \right)^2
+\end{equation}
+
+As we will see in a later chapter, the \textbf{uncertainty principle} places bounds on this uncertainty, which has far-reaching consequences that we will discuss in due time. 
+
+\begin{example}
+	Uncertainty in Gaussian
+\end{example}
+\subsubsection{Position Operator}
+
+Up until now, we have simply been using probability theory to calculate the mean position and variance of a particular state. These results can be reasoned through mathematics. However, we'd like to generalize these concepts to physical observables that are not simply direct functions of position. For instance, what is the momentum\sidenote[][-30mm]{Classically, the momentum of a particle is a derivative of position: $p = m\frac{dx}{dt} $. However, this does not generalize well to our current quantum description. The particle does not have a well defined position, so it is not obvious what this derivative even means. We will see the generalization shortly. } or kinetic energy of a given state? Are these even the right questions to ask? 
+
+To begin addressing the conceptual framework for answering these questions\sidenote{This framework is ultimately backed by experiment! Take it as postulate.}, we will write the mean position of our previous discussion in sort of a funny way:
+
+\begin{equation}
+	E(x)_{\psi} = \int_{-\infty}^{\infty}dx \psi^*(x) x \psi(x)
+\end{equation}
+
+Conceptually, we can think of this expectation value as 
+%\subsubsection{Superpositions and relative phase}
+%
+%Although global phases are an arbitrary choice, relative phases are not! There is a subtle, but important difference here. Suppose we have two normalized wavefunctions $\psi_1(x) $ and $\psi_2(x) $. We want to form a ``sum" (or \textbf{superposition}) of the two wavefunctions\sidenote{We will see in the TODO: add section here where one might want to ``add" wavefunctions together.}. To form a new wavefunction with $\psi_1(x) $ and $\psi_2(x) $, we can write:
+%
+%\begin{equation}
+%	\psi(x) = a\psi_1(x) + b\psi_2(x)
+%\end{equation}
+%
+%In order to retain normalization, $ |a|^2 + |b|^2 = 1 $. 
+%
+%\begin{remark}
+%	Here, we perform a short proof of the above fact. Given the wavefunction $\psi(x) = a\psi_1(x) + b\psi_2(x) $, normalization requires:
+%	
+%	\begin{align}
+%		1 &= \int_{-\infty}^{\infty} dx (a^*\psi_1(x) + b^*\psi_2(x)) (a\psi_1(x) + b\psi_2(x)) 
+%	\end{align}
+%\end{remark}

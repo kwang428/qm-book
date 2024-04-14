@@ -1,3 +1,5 @@
+% !TeX root = ../main.tex
+
 \setchapterpreamble[u]{\margintoc}
 \chapter{Why Quantum Mechanics?}
 \labch{intro}
@@ -15,12 +17,6 @@ In a classical wave (think of water or the string of a violin), the energy of th
 However, experiments performed in the late 19th century began to change this perception. In 1887, Hertz discovered that ultraviolet light, whose distinguishing feature is its high \textit{frequency} not amplitude, could create vigorous sparks between metal electrodes. The ejection of electrons from a material due to light was dubbed the \textbf{photoelectric effect}, and was a beautiful confirmation of the relationship between light and electromagnetism, a cornerstone of Maxwell's theory. 
 
 In 1902, Lenard set up an ingenious experiment to measure both the \textbf{number} and \textbf{energy} of the ejected electrons from a metal due to a source of light. The ejected electrons from the metal were guided to a collector and the current was measured with a precision ammeter. The energy of the electrons was measured by applying a potential $V_{\text{stop}}$ to the collector to repel the electrons. What Lenard found was that by increasing the brightness (amplitude) of the light source, the current increased, but $V_{\text{stop}}$ was unaffected! In fact, the frequency of light impacted $V_{\text{stop}} $, where higher frequencies required larger stopping potentials. This confirmed Hertz's earlier observation of the potency of ultraviolet light. 
-
-\begin{marginfigure}[-12cm]
-	\includegraphics{images/chap1_photoelectric.eps}
-	\caption{A schematic of Lenard's experiment. Light ejects electrons off of a metal towards an electrode. After hitting the electrode, a current is readable on the ammeter. A stopping potential $V_{\text{stop}} $ can be applied to measure the energy of the ejected electrons.} 
-	\labfig{photoelectric}
-\end{marginfigure}
 
 These observations were finally explained by Einstein in 1905\sidenote[][-12mm]{This year was known as Einstein's \textit{annus mirabilis} (or miracle year). Einstein published 4 papers: an explanation of the photoelectric effect, Brownian motion, special relativity, and the mass-energy equivalence. He won the Nobel Prize in 1921 for the photoelectric effect. Let us all have our miracle years!}. He postulated that the energy from light must come from \textit{packets} or \textit{quanta}. Each quantum of light has energy that is proportional to frequency 
 
@@ -41,11 +37,6 @@ where $ E = pc $ is the energy of a massless relativistic particle, $c$ is the s
 \section{Particles as Waves: Interference of individual electrons}
 
 Now, we discuss a situation where particles can exhibit wave-like behavior, which is at the heart of the description of quantum mechanics. Another classical wave phenomenon is interference. Wave amplitudes can add together constructively to create larger waves, but also cancel each other destructively. Applying this principle to waves sent through multiple slits give rise to interference patterns. Thomas Young, in 1803, demonstrated that light was a wave by experimentally verifying these interference patterns.
-\begin{marginfigure}[-7cm]
-	\includegraphics{images/double_slit_simulated.jpg}
-	\caption{A simulated image of the interference pattern when light passes through two slits. Bright stripes correspond to locations of constructive interference, and dark stripes correspond to locations of destructive interference. Without interference, only two spots are expected at the location of the two slits. } 
-	\labfig{double_slit}
-\end{marginfigure}
 
 However, would particles, such as electrons, exhibit such behavior? In 1927, Clinton Davisson and Lester Germer showed that when electrons are diffracted off a crystal of Nickel, an interference pattern due to its crystal structure was visible in the locations of the diffracted electrons. A double-slit experiment was finally performed by Claus Jonsson in 1961 further confirming that electron beams did exhibit wave-like behavior. Perhaps most surprisingly, Pier Giorgio Merli, Giulio Pozzi and GianFranco Missiroli in 1976 performed a double-slit experiment with \textit{single} electrons. Although one might conceive that beams of electrons can contain individual electrons which interfere with others, Merli, Pozzi and Missiroli's experiment showed that single electrons also \textit{interfere}, and they interfere with themselves\sidenote{Akira Tonomura and colleagues at Hitachi performed a single-electron double-slit experiment in 1989. A video is available on YouTube, where you can see the electrons accumulating one at a time, yet together they eventually display an interference pattern. I encourage you to look it up!}! In fact, this is in agreement with quantum mechanics where individual particles are treated as having \textbf{wavefunctions} and being waves themselves. 
 
@@ -63,12 +54,6 @@ As we begin to think of particles like waves and waves like particles, it is imp
 
 Another one of the first areas in nature where features of quantum mechanics were elucidated was in the spectra of atoms. The concept of an atom, from the Greek \textit{atomon}, meaning indivisible, was first introduced by Democritus in ancient Greece. He proposed that atoms made up all matter, and this theory gained steam in the 19th century, where a collection of scientists including Antoine Lavoisier verified the composition of water being two parts hydrogen and one part oxygen. Through explorations of cathode rays, J.J. Thompson in 1897 concluded that atoms were divisible after all and included subatomic particles, like negatively charged electrons. The discovery of the electron was awarded the Nobel Prize in 1906. Attention then turned to the structure of the atom. These electrons were initially thought to be evenly distributed across a positively charged background that composed the atom, and was coined the \textit{plum pudding model}. In 1911, Ernest Rutherford bombarded gold foil with alpha particles, and found that most particles passed straight through. This experiment confirmed that the atom was mostly empty space, and he posited that a positively charged nucleus was concentrated in the center of the atom. Around the same time and earlier, scientists discovered that light is composed of different colors, and that gases of certain chemical elements emitted light of particular colors or frequencies. Using the insight from Einstein, these frequencies correspond to a discrete set of energies. In order for atoms to emit only a discrete spectrum, Niels Bohr postulated that electrons orbited the nucleus at fixed distances, which corresponded to a discrete set of possible energies.
 
-\begin{marginfigure}[-7cm]
-	\includegraphics{images/line_spectra.png}
-	\caption{Line spectra for various different elements. There are distinct wavelengths where there is a peak of emission. } 
-	\labfig{line_spectra}
-\end{marginfigure}
-
 Attempting to match experimentally measured spectra, Bohr proposed that these orbits were quantized such that the angular momentum of the electron were integer multiples of $\hbar = h/(2\pi) $
 
 \begin{equation}
@@ -76,12 +61,6 @@ Attempting to match experimentally measured spectra, Bohr proposed that these or
 	\end{equation}
 
 where $n = 1,2,3,... $. Here, Bohr indeed finds that the same Planck constant that had been the key to understanding photons and blackbody radiation should be used here! The circular orbit requires that the centripetal force equal the electrostatic force between the electron of charge $ -e$ and nucleus (for Hydrogen) of charge $ e $:
-
-\begin{marginfigure}[0cm]
-	\includegraphics{images/chap1_atom_model.eps}
-	\caption{A simplified model of the Hydrogen atom where an electron circularly orbits a proton at radius $ r $, and velocity $ v $.} 
-	\labfig{atom_model}
-\end{marginfigure}
 
 \begin{equation}
 	\frac{mv^2}{r} = \frac{e^2}{4\pi\epsilon_0 r^2} \label{eq:circ}
@@ -110,18 +89,36 @@ Concentration of energy at a particular frequency is a simplified definition for
 
 High powers are required when an object does not absorb very much in the frequency range of your source. However, as we have discussed atoms and molecules have very particular frequencies. Water is known to have transitions in the microwave region, which is how the modern microwave works. It targets the frequency of a transition in water around 2.45 GHz, causing the water molecules to heat up and warm up your food. It is dangerous to microwave metal, precisely since it does not have a transition and this frequency and will reflect the powerful waves that your microwave emits, causing other areas of the microwave to be hit by the radiation.
 
-The selectivity of radiation also allows for non-invasive imaging that is essential in modern medicine. Our skin reflects visible light\sidenote{Though not the same can be said about our friend \textit{C. elegans}.}, but it allows radio frequencies through just fine. This transparency to radio frequencies allows this radiation to probe structures \textit{inside} our bodies. It turns out the nuclei of hydrogen (protons) have transitions in these radio frequencies. Since hydrogen is prevalent in the body in many compounds, radio frequencies can be used to measure water and fat content in the body\sidenote[][-30mm]{If you've ever taken a MRI, you may have realized that you need to be placed into a big magnet. This giant magnet is required to create the discrete spectrum needed for spectral selectivity. It is worth noting that the chemical environment of the protons (what molecule the protons are a part of) also impacts these very precise frequencies. Chemists use this fact all the time in a technique called nuclear magnetic resonance (NMR) to fingerprint their compounds.}. This imaging technique is known as magnetic resonance imaging (MRI) and is a key diagnostic tool for soft-tissue, which does not have the type of crystalline solid structure to diffract x-rays. MRI imaging has been used in joints to identify tears in ligaments, but also in the brain to identify the onset of Alzheimer's disease. 
-
-
-\begin{marginfigure}[0cm]
-	\includegraphics{images/brain_mri.jpg}
-	\caption{A MRI of the brain showing a brain tumor.} 
-	\labfig{brain_mri}
-\end{marginfigure}
-
+The selectivity of radiation also allows for non-invasive imaging that is essential in modern medicine. Our skin reflects visible light\sidenote{Though not the same can be said about our friend \textit{C. elegans}.}, but it allows radio frequencies through just fine. This transparency to radio frequencies allows this radiation to probe structures \textit{inside} our bodies. It turns out the nuclei of hydrogen (protons) have transitions in these radio frequencies. Since hydrogen is prevalent in the body in many compounds, radio frequencies can be used to measure water and fat content in the body\sidenote[][]{If you've ever taken a MRI, you may have realized that you need to be placed into a big magnet. This giant magnet is required to create the discrete spectrum needed for spectral selectivity. It is worth noting that the chemical environment of the protons (what molecule the protons are a part of) also impacts these very precise frequencies. Chemists use this fact all the time in a technique called nuclear magnetic resonance (NMR) to fingerprint their compounds.}. This imaging technique is known as magnetic resonance imaging (MRI) and is a key diagnostic tool for soft-tissue, which does not have the type of crystalline solid structure to diffract x-rays. MRI imaging has been used in joints to identify tears in ligaments, but also in the brain to identify the onset of Alzheimer's disease. 
 
 These particular examples just scratch the surface of how quantum phenomenon \textit{are} present in our everyday lives. As we progress in this book, other relevant examples will be brought up when necessary. Since quantum mechanics is a very non-intuitive subject, I believe that real world examples are especially important to grasp the concepts. Plus, they are just really cool. 
 
+
+\section{Spin and Measurement}
+
+We have discussed many of the salient features of quantum mechanics that are leveraged in modern technologies, namely the concept of quantization of energy. However, experiments uncovered another key area where quantization appears that will need to be captured in any quantum theory, and also served as a verification of the powerful framework of quantum mechanics that began in the early 20th century. This area is the quantization of \textit{intrinsic angular momentum}, typically called \textbf{spin}. 
+
+Otto Stern and Walther Gerlach in 1922 performed their famous \textbf{Stern-Gerlach experiment}, where a beam of hot silver atoms was sent through an inhomogeneous magnetic field. If these silver atoms have a magnetic moment, $ \boldsymbol\mu $, then their energy in this magnetic field is given by
+
+\begin{equation}
+	U = -\boldsymbol\mu \cdot \mathbf{B} 
+\end{equation}
+
+and subsequent force is given by:
+
+\begin{equation}
+	\mathbf{F} = \boldsymbol\mu \cdot \nabla \mathbf{B} 
+\end{equation}
+
+The inhomogeneous magnetic field in the Stern-Gerlach experiment created a gradient in the $z$-direction, which then deflects the atoms in the $z$ direction. After this magnetic field region, the silver atoms would be detected on a screen. One would expect a distribution of silver atoms at different $z$ positions on the screen arising from different $z$ components of the angular momentum. Surprisingly\sidenote{Surprising to us, but Stern and Gerlach had expected this result! The experiment was designed specifically to test the quantization of angular momentum (and thus magnetic moment) that was used by Bohr to explain the line spectra of atoms.}, the experiment showed two distinct spots of atoms. This observation suggests:
+
+\begin{itemize}
+	\item Atoms can only have two discretized values of the magnetic moment in the $z$ direction. 
+	\item Even though the silver atoms were initially in a thermal distribution of magnetic moments that can point in any direction, the apparatus itself has \textit{forced} the atoms to have a value for the magnetic moment in the $z$ direction.
+
+\end{itemize}
+
+The first consequence is simply a verification of the quantization of angular momentum. However, the second consequence has a deeper mysterious meaning in quantum mechanics, which has been the subject of much debate and many interpretations of quantum mechanics\sidenote{For a discussion of this, check out Steven Weinberg's \textit{Lectures on Quantum Mechanics}}. The idea that the atoms have been \textit{forced} to have a value in the $z$ direction when it could have conceivably not is known as \textbf{measurement}. The apparatus could be said to be a \textit{detector} for the magnetic moment in the $z$ direction. Upon detection, the particle will only take on its allowed values\sidenote{Precisely, the eigenvalues of the observable, but that will be discussed later!}. Furthermore, if a second Stern-Gerlach apparatus is placed after just one of these beams, the particles will deflect in the \textit{same} direction as in the first apparatus. This phenomenon has come to be known as \textbf{collapse of the wavefunction}, which captures the idea that after measurement, a quantum system will then be in the state that the measurement suggests. Despite initially being in a thermal distribution, the silver atoms have taken a stand, so to speak, and are now firmly in this state, even upon subsequent measurement. Measurement has been one of the most puzzling features of quantum mechanics and will need to be dealt with carefully. However, it is once again apt to mention that we are developing mathematical frameworks of conceptual models to understand and predict experimental results! If it is non-intuitive, stick to the guns of the framework and don't get too caught up on what it actually means! 
 \section{Summary}
 
 Through many beautiful experiments starting from the 19th century and continuing to the modern day, quantum mechanics has been verified time and time again. Grossly non-intuitive, quantum mechanics posits that light, classically thought of as waves, requires a particle like description and likewise, electrons, classically thought of as particles, requires a wave like description. To understand the line spectra of atoms, a heuristic quantization condition was introduced by Bohr. Although we did not elaborate here, quantization can be seen as a consequence of the wave-like behavior of particles analogous to how a string can only support a discrete set of frequencies, corresponding to the supported standing waves\sidenote{We will elaborate on this in the next chapter!}. Discretization of frequencies enables technologies like efficient lighting, lasers and medical imaging. Equating all of quantum mechanics to a discretization of energy is a gross oversimplification, but it is worth noting all the consequences that such a discretization of energy results in. With this prelude, I hope I have made you excited about the journey we are about to embark on. To really appreciate, understand and make use of quantum mechanics, we will need to engage in mathematical framework that will require concepts from linear algebra to calculus. However, I hope you always keep this introductory chapter in mind, and not get lost in the throws of mathematical calculation. The mathematics is describing a \textit{beautiful} set of experimental results and useful technologies. Enough prelude, let's go.
