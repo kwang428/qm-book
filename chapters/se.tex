@@ -156,9 +156,9 @@ With concepts of orthogonality and normalization defined, we can already begin t
 
 We will see that it will be very useful to decompose wavefunctions into certain bases. 
 
-\section{Operators, Observables and Expectation Values}
+\section{Operators and Expectation Values}
 
-Now that we have introduced how quantum states are represented, we would like to extract physical observables from these states as well as evolve them in time. Our description already provides the probability of finding particles at particular positions. Using probability theory, the expectation value of any function of position can be simply calculated as:
+Now that we have introduced how quantum states are represented, we would like to extract physical observables from these states as well as evolve them in time. Wavefunctions contain a lot of information, and our interaction with them experimentally will usually be through their expectation values. For example, if we make repeated measurements on a system and calculate a mean, it is the system's expectation value that we will measure. Our description already provides the probability of finding particles at particular positions. Using probability theory, the expectation value of any function of position can be simply calculated as:
 
 \begin{equation}
 	E(f(\mathbf{r}))_{\psi} = \int_{\mathbf{R}^3} d^3\mathbf{r} f(\mathbf{r}) |\psi(\mathbf{r})|^2
@@ -188,10 +188,99 @@ Up until now, we have simply been using probability theory to calculate the mean
 To begin addressing the conceptual framework for answering these questions\sidenote{This framework is ultimately backed by experiment! Take it as postulate.}, we will write the mean position of our previous discussion in sort of a funny way:
 
 \begin{equation}
-	E(x)_{\psi} = \int_{-\infty}^{\infty}dx \psi^*(x) x \psi(x)
+	E(x)_{\psi} = \int_{-\infty}^{\infty}dx \psi^*(x) x \psi(x) \label{eq: expect}
 \end{equation}
 
-Conceptually, we can think of this expectation value as 
+Conceptually, we can think of this expectation value as taking our wavefunction, acting on it with some operation and then taking its overlap with the original wavefunction. In this case, the operation is to multiply the wavefunction by $x$. Hence, we define the \textbf{position operator}, $\hat{x}$, in 1D as simply:
+
+\begin{equation}
+	\hat{x}\psi \to x\psi(x)
+\end{equation}
+
+We denote operators with ``hats" to distinguish them from simple scalar multiplication. An operator can be thought of as some rule that modifies the wavefunction. Note that operators do not necessarily preserve normalization, so they do \textit{not} necessarily turn valid wavefunctions into other valid wavefunctions. 
+
+Since potential energy is a function of position, as an operator, it simply acts as a multiplier as well:
+
+\begin{equation}
+	\hat{V}(x)\psi \to V(x)\psi(x)
+\end{equation}
+
+The position operator in 3D is a vector operator:
+
+\begin{equation}
+	\hat{\mathbf{r}} \psi \to \psi(\mathbf{r})\mathbf{r}
+\end{equation}
+
+meaning that it returns a vector when it operates on a wavefunction. 
+
+Expectation values of operators now generalize according to equation \ref{eq: expect}:
+
+\begin{equation}
+	\boxed{E(\hat{O})_{\psi} = \int_{\mathbf{R}^3} d^3\mathbf{r} \psi^*(\mathbf{r}) \hat{O}\psi(\mathbf{r})}
+\end{equation}
+
+\subsubsection{Momentum Operator}
+
+What is the momentum operator in quantum mechanics? Classically, it is the mass times the velocity, but this is a very particle-based perspective. In a wavelike description, the momentum is given by equation \ref{eq:photon-momentum}:
+
+\begin{equation}
+	p = \frac{h}{\lambda} = \frac{h}{2\pi}\frac{2\pi}{\lambda} = \hbar k
+\end{equation}
+
+where $h/2\pi$ is the reduced Planck constant, and $k$ is the wavevector. Let's try to extract this wavevector from a plane wave $ e^{i(kx -\omega t)} $. If we want to get a $k$, we need to take a derivative with the correct prefactor. Note that
+
+\begin{equation}
+	\frac{\hbar}{i} \frac{d}{dx}e^{i(kx - \omega t)} = \hbar k e^{i(kx - \omega t)}
+\end{equation}
+
+Thus, we identify\sidenote{This is hardly a rigorous argument for the momentum operator. We are just trying to get a bit of intuition and have a mnemonic for remembering this operator. We will revisit the operator later as a \textit{generator for translations}.} the momentum operator as:
+
+\begin{equation}
+	\hat{p} \psi \to \frac{\hbar}{i} \frac{d}{dx}\psi(x)
+\end{equation}
+
+The expectation value of momentum can be calculated as:
+
+\begin{equation}
+	E(\hat{p})_{\psi} = \int_{-\infty}^{\infty} dx \psi^*(x)\frac{\hbar}{i}\frac{d}{dx} \psi(x) 
+\end{equation}
+
+which involves taking a derivative of the wavefunction. 
+
+\begin{example}
+	Average momentum and uncertainty of a plane wave
+\end{example}
+
+\begin{example}
+	Average momentum and uncertainty of a Gaussian wavepacket
+\end{example}
+
+\begin{example}
+	Momentum of a real wavefunction.
+\end{example}
+
+The kinetic energy can be derived from the momentum as $ T = \frac{p^2}{2m}$, hence resulting in the following operator, where the twice-applied momentum operator results in a 2nd derivative:
+
+\begin{equation}
+	\hat{T}\psi \to -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x)
+\end{equation}
+
+\begin{example}
+	Kinetic energy of Gaussian
+\end{example}
+
+In 3D, the momentum generalizes as a vector operator to a gradient, and the kinetic energy generalizes to a Laplacian
+
+\begin{align}
+	\hat{\mathbf{p}}\psi &\to \frac{\hbar}{i} \nabla \psi(\mathbf{r}) \\
+	\hat{T}\psi &\to -\frac{\hbar^2}{2m} \nabla^2 \psi(\mathbf{r})
+\end{align}
+
+Now, we know how to calculate average positions, momenta, kinetic and potential energies for quantum states! There's a lot more we will have to discuss about different types of operators\sidenote{We will devote an entire chapter to this formalism, but let's not lose the forest for the trees! The point of this chapter is to give us a soft introduction to the formalism while developing intuition for quantum behavior and important model systems. It is crucial that we deal with these concrete scenarios first, before we dive into heavy formalism to keep us grounded and appreciate quantum mechanics as a subject of \textit{physics} not mathematics.} , but before we get there, let's get a bit more concrete about how wavefunctions arise and how they might evolve in time. We will now explore their dynamics, which is given by the empirical Schr\"{o}dinger equation. 
+
+\section{Dynamics and The Schr\"{o}dinger Equation}
+
+
 %\subsubsection{Superpositions and relative phase}
 %
 %Although global phases are an arbitrary choice, relative phases are not! There is a subtle, but important difference here. Suppose we have two normalized wavefunctions $\psi_1(x) $ and $\psi_2(x) $. We want to form a ``sum" (or \textbf{superposition}) of the two wavefunctions\sidenote{We will see in the TODO: add section here where one might want to ``add" wavefunctions together.}. To form a new wavefunction with $\psi_1(x) $ and $\psi_2(x) $, we can write:
